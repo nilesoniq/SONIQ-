@@ -1,19 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>SONIQ CASINO</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SONIQ CASINO | Spin. Win. Withdraw Instant.</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#000;color:#fff;font-family:Arial;text-align:center}
-header{padding:20px;border-bottom:2px solid #ff6b00}
-h1{font-size:60px;margin:20px 0} h1 span{color:#ff6b00}
-.btn{background:#ff6b00;color:#000;padding:15px 30px;border:none;border-radius:30px;font-size:18px;font-weight:bold;cursor:pointer}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#07070a;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
+h1,h2,.logo{font-family:'Orbitron',sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 4%;background:#0f0f14;border-bottom:1px solid #1e1e28;position:sticky;top:0;z-index:10}
+.logo{font-size:28px;letter-spacing:2px} .logo span{color:#ff6b00}
+.btn-orange{background:linear-gradient(90deg,#ff6b00,#ff9500);color:#000;padding:12px 26px;border:none;border-radius:30px;font-weight:800;cursor:pointer;box-shadow:0 0 20px rgba(255,107,0,.4)}
+.hero{padding:60px 4%;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;background:radial-gradient(circle at 20% 30%,rgba(255,107,0,.15),transparent 60%)}
+.hero h1{font-size:58px;line-height:1;letter-spacing:-1px} .hero h1 span{color:#ff6b00}
+.hero p{color:#9aa0b2;margin:18px 0 28px;font-size:18px;line-height:1.5}
+.balance-card{background:#12121a;border:1px solid #242434;border-radius:20px;padding:20px}
+.b-row{display:flex;justify-content:space-between;margin:12px 0;color:#9aa0b2} .b-row b{color:#fff}
+.games{padding:30px 4%} .games h2{font-size:32px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.game{background:#12121a;border:1px solid #242434;border-radius:18px;overflow:hidden;transition:.2s} .game:hover{transform:translateY(-4px);border-color:#ff6b00}
+.game-top{height:160px;display:flex;align-items:center;justify-content:center;font-size:60px;background:linear-gradient(135deg,#1a1a26,#0f0f14)}
+.game-body{padding:16px} .game-body h3{margin-bottom:6px} .game-body p{color:#9aa0b2;font-size:13px;margin-bottom:12px}
+.mult{color:#00ff88;font-weight:800}
+.jackpot{margin:20px 4%;background:linear-gradient(90deg,#ff6b00,#ff2e63);border-radius:18px;padding:18px;text-align:center;font-weight:900;letter-spacing:1px}
+.deposit{margin:20px 4%;background:#12121a;border:1px solid #242434;border-radius:18px;padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+input{width:100%;padding:14px;border-radius:12px;border:1px solid #2a2a3a;background:#0a0a0f;color:#fff;margin-top:8px}
+footer{padding:30px 4%;text-align:center;color:#666;border-top:1px solid #1e1e28;margin-top:30px}
+@media(max-width:800px){.hero{grid-template-columns:1fr} .hero h1{font-size:42px} .deposit{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header><h2>SONIQ CASINO</h2></header>
-<h1>SPIN. PLAY.<br><span>WIN BIG.</span></h1>
-<p>Premium casino with MTN MoMo - 256760819519</p>
-<button class="btn">PLAY NOW</button>
+<header>
+<div class="logo">SONIQ</div>
+<div><button class="btn-orange" onclick="alert('MTN MoMo Deposit: 256760819519 - Name: NILESONIQ')">DEPOSIT</button></div>
+</header>
+
+<div class="hero">
+<div>
+<h1>SPIN.<br>PLAY.<br><span>WIN BIG.</span></h1>
+<p>Uganda's fastest payout casino. Deposit with MTN MoMo, withdraw in 2 minutes. No KYC for small wins.</p>
+<button class="btn-orange" onclick="spin()">PLAY NOW - 500 UGX</button>
+<div style="margin-top:14px;color:#9aa0b2;font-size:13px">✓ MTN MoMo 256760819519 ✓ Instant Withdraw ✓ 98% RTP</div>
+</div>
+<div class="balance-card">
+<h3>💰 Your Balance</h3>
+<div class="b-row"><span>Balance</span><b id="bal">5,000 UGX</b></div>
+<div class="b-row"><span>Total Won</span><b id="won">0 UGX</b></div>
+<div class="b-row"><span>Jackpot</span><b class="mult" id="jack">2,458,000 UGX</b></div>
+<button class="btn-orange" style="width:100%;margin-top:12px" onclick="withdraw()">WITHDRAW VIA MOMO</button>
+<div id="slotResult" style="margin-top:18px;font-size:42px;text-align:center">🎰 🎰 🎰</div>
+</div>
+</div>
+
+<div class="jackpot">🔥 LIVE JACKPOT: <span id="jack2">2,458,000</span> UGX - NEXT DRAW IN <span id="timer">04:59</span></div>
+
+<div class="games">
+<h2>🔥 Hot Games</h2>
+<div class="grid">
+<div class="game"><div class="game-top">🚀</div><div class="game-body"><h3>SONIQ Crash</h3><p>Cash out before it crashes. Up to 1000x</p><div class="mult">2.45x • LIVE</div><br><button class="btn-orange" onclick="crash()">PLAY</button></div></div>
+<div class="game"><div class="game-top">🎰</div><div class="game-body"><h3>Super Spin</h3><p>3 matching symbols win jackpot</p><div class="mult">RTP 98%</div><br><button class="btn-orange" onclick="spin()">SPIN</button></div></div>
+<div class="game"><div class="game-top">⚽</div><div class="game-body"><h3>Virtual Sports</h3><p>Bet on virtual football - every 3 mins</p><div class="mult">ODDS 15.0</div><br><button class="btn-orange" onclick="alert('Coming Soon')">BET</button></div></div>
+<div class="game"><div class="game-top">♠️</div><div class="game-body"><h3>SONIQ Poker</h3><p>Texas Holdem - daily tournament</p><div class="mult">PRIZE 500K</div><br><button class="btn-orange" onclick="alert('Coming Soon')">JOIN</button></div></div>
+</div>
+</div>
+
+<div class="deposit">
+<div>
+<h3>Deposit via MTN MoMo</h3>
+<p style="color:#9aa0b2;font-size:14px;margin-top:6px">Send to: 256760819519 (NILESONIQ) then enter Transaction ID</p>
+<input id="tx" placeholder="Enter MoMo Transaction ID e.g. 1234567890">
+<button class="btn-orange" style="margin-top:12px;width:100%" onclick="deposit()">CONFIRM DEPOSIT</button>
+</div>
+<div>
+<h3>Withdraw</h3>
+<input id="phone" placeholder="Your MoMo Number 07XXXXXXXX">
+<input id="amt" placeholder="Amount UGX (min 1000)">
+<button class="btn-orange" style="margin-top:12px;width:100%" onclick="withdraw()">WITHDRAW NOW</button>
+</div>
+</div>
+
+<footer>© 2026 SONIQ CASINO • MTN MoMo: 256760819519 • Support: WhatsApp 0760819519 • Play Responsibly 18+<br>Gambling can be addictive. SONIQ is licensed for entertainment.</footer>
+
+<script>
+let balance=5000; let totalWon=0;
+function update(){document.getElementById('bal').innerText=balance.toLocaleString()+' UGX'; document.getElementById('won').innerText=totalWon.toLocaleString()+' UGX';}
+function spin(){
+ if(balance<500){alert('Low balance. Deposit via MTN MoMo 256760819519');return;}
+ balance-=500;
+ let icons=['🍒','🍋','💎','7️⃣','🚀','💰']; let a=icons[Math.floor(Math.random()*icons.length)]; let b=icons[Math.floor(Math.random()*icons.length)]; let c=icons[Math.floor(Math.random()*icons.length)];
+ document.getElementById('slotResult').innerText=a+' '+b+' '+c;
+ if(a==b && b==c){ let win=a=='💎'?50000:a=='7️⃣'?25000:5000; balance+=win; totalWon+=win; alert('WIN! +'+win+' UGX'); } else if(a==b||b==c||a==c){ balance+=1000; totalWon+=500; }
+ update();
+}
+function crash(){ let m=(Math.random()*10+1).toFixed(2); if(confirm('Crash started at 1.00x, it will crash at '+m+'x. Press OK to cash out at 2x?')){ balance+=1000; totalWon+=1000; alert('You cashed out! +1000 UGX'); update(); } else { alert('Crashed at '+m+'x'); } }
+function deposit(){ let tx=document.getElementById('tx').value; if(tx.length<5){alert('Enter valid Transaction ID');return;} balance+=parseInt(tx.slice(-4))||1000; alert('Deposit Received! Balance updated.'); update(); }
+function withdraw(){ let p=document.getElementById('phone').value; let a=document.getElementById('amt').value; if(!p||!a){alert('Enter phone and amount');return;} if(parseInt(a)>balance){alert('Insufficient balance');return;} alert('Withdrawal of '+a+' UGX to '+p+' requested. Will be sent via MTN MoMo 256760819519 in 2 minutes.'); balance-=parseInt(a); update(); }
+setInterval(()=>{ let j=document.getElementById('jack'); let n=parseInt(j.innerText.replace(/,/g,'')); j.innerText=(n+Math.floor(Math.random()*100)).toLocaleString()+' UGX'; },1000);
+let t=299; setInterval(()=>{ t--; let m=Math.floor(t/60); let s=t%60; document.getElementById('timer').innerText=(m<10?'0':'')+m+':'+(s<10?'0':'')+s; if(t<=0) t=300; },1000);
+update();
+</script>
 </body>
 </html>
