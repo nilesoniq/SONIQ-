@@ -2,103 +2,210 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SONIQ CASINO | Spin. Win. Withdraw Instant.</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050609">
+<title>SONIQ CASINO | Spin. Play. Win Big.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#07070a;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
-h1,h2,.logo{font-family:'Orbitron',sans-serif}
-header{display:flex;justify-content:space-between;align-items:center;padding:15px 4%;background:#0f0f14;border-bottom:1px solid #1e1e28;position:sticky;top:0;z-index:10}
-.logo{font-size:28px;letter-spacing:2px} .logo span{color:#ff6b00}
-.btn-orange{background:linear-gradient(90deg,#ff6b00,#ff9500);color:#000;padding:12px 26px;border:none;border-radius:30px;font-weight:800;cursor:pointer;box-shadow:0 0 20px rgba(255,107,0,.4)}
-.hero{padding:60px 4%;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;background:radial-gradient(circle at 20% 30%,rgba(255,107,0,.15),transparent 60%)}
-.hero h1{font-size:58px;line-height:1;letter-spacing:-1px} .hero h1 span{color:#ff6b00}
-.hero p{color:#9aa0b2;margin:18px 0 28px;font-size:18px;line-height:1.5}
-.balance-card{background:#12121a;border:1px solid #242434;border-radius:20px;padding:20px}
-.b-row{display:flex;justify-content:space-between;margin:12px 0;color:#9aa0b2} .b-row b{color:#fff}
-.games{padding:30px 4%} .games h2{font-size:32px;margin-bottom:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-.game{background:#12121a;border:1px solid #242434;border-radius:18px;overflow:hidden;transition:.2s} .game:hover{transform:translateY(-4px);border-color:#ff6b00}
-.game-top{height:160px;display:flex;align-items:center;justify-content:center;font-size:60px;background:linear-gradient(135deg,#1a1a26,#0f0f14)}
-.game-body{padding:16px} .game-body h3{margin-bottom:6px} .game-body p{color:#9aa0b2;font-size:13px;margin-bottom:12px}
-.mult{color:#00ff88;font-weight:800}
-.jackpot{margin:20px 4%;background:linear-gradient(90deg,#ff6b00,#ff2e63);border-radius:18px;padding:18px;text-align:center;font-weight:900;letter-spacing:1px}
-.deposit{margin:20px 4%;background:#12121a;border:1px solid #242434;border-radius:18px;padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-input{width:100%;padding:14px;border-radius:12px;border:1px solid #2a2a3a;background:#0a0a0f;color:#fff;margin-top:8px}
-footer{padding:30px 4%;text-align:center;color:#666;border-top:1px solid #1e1e28;margin-top:30px}
-@media(max-width:800px){.hero{grid-template-columns:1fr} .hero h1{font-size:42px} .deposit{grid-template-columns:1fr}}
+:root{--bg:#050609;--panel:#080b10;--panel2:#101119;--line:#282a32;--muted:#b0bac8;--orange:#ff7900;--gold:#ffb300;--green:#00e68a;--red:#ff4d52;--blue:#12a9ff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(ellipse at 48% 14%,#1c0d07 0,transparent 36%),var(--bg);color:#f8f9fb;font-family:Inter,Arial,sans-serif;overflow-x:hidden}
+button,input{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+header{height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 3.6%;border-bottom:1px solid #28252a;background:rgba(3,4,7,.96);position:sticky;top:0;z-index:20}
+.logo{font-family:Orbitron,sans-serif;font-weight:900;letter-spacing:-1.8px;font-size:31px;line-height:.88;white-space:nowrap}
+.logo .soniq{display:block}.logo .casino{display:block;color:var(--orange);font-size:17px;letter-spacing:4px;text-align:center;margin-top:4px}
+.logo .o{color:var(--orange)}
+nav{display:flex;align-items:center;gap:32px;color:#f2f3f6;font-size:13px;font-weight:700}
+nav a{padding:31px 0;position:relative}
+nav a.active,nav a:hover{color:var(--orange)}
+nav a.active:after{content:"";height:2px;background:var(--orange);position:absolute;bottom:20px;left:0;right:0}
+.actions{display:flex;gap:12px}
+.btn{border:0;border-radius:999px;padding:13px 25px;font-weight:900;color:#08090c;background:linear-gradient(110deg,#ffb000,#ff6b00);box-shadow:0 0 18px #ff79002b;transition:transform .18s,filter .18s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn-outline{border:1.5px solid var(--gold);background:transparent;color:#fff;box-shadow:none;min-width:100px}
+.btn.small{padding:11px 24px}
+.menu-toggle{display:none;background:transparent;color:white;border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+.hero{padding:35px 3.6% 27px;display:grid;grid-template-columns:1.04fr 1.1fr .91fr;gap:20px;align-items:center;min-height:455px;border-bottom:1px solid #191a20;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:500px;height:380px;left:15%;top:10%;background:radial-gradient(ellipse,#ff4c001e,transparent 70%);pointer-events:none}
+.hero-copy{position:relative;z-index:2}
+.hero h1{font-size:clamp(38px,4.5vw,68px);line-height:.98;letter-spacing:-2.7px;font-weight:900}
+.hero h1 span{color:var(--orange)}
+.hero-copy p{font-size:15px;color:#bdc4cf;line-height:1.55;margin:18px 0 21px;max-width:360px}
+.play-btn{font-size:16px;padding:16px 32px;min-width:188px}
+.trust{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:28px;color:#dbe0e8;font-size:11px;line-height:1.5}
+.trust-item{display:flex;align-items:center;gap:8px}
+.trust-icon{font-size:24px;color:var(--orange)}
+.hero-art{position:relative;min-height:365px;display:flex;align-items:center;justify-content:center}
+.art-glow{position:absolute;width:90%;height:78%;border-radius:50%;background:radial-gradient(ellipse,#ff6b003b,transparent 68%);filter:blur(10px)}
+.slot-machine{position:relative;width:min(100%,365px);height:270px;border-radius:38px;border:5px solid #3b2020;background:linear-gradient(140deg,#28242a,#09090d 54%,#371408);box-shadow:0 18px 35px #000,0 0 22px #ff5500a8,inset 0 0 18px #ff79004f;transform:rotate(-7deg);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.slot-machine:before{content:"";position:absolute;inset:9px;border:2px solid #ff7c16;border-radius:27px;box-shadow:inset 0 0 15px #ff4d004d}
+.slot-crown{position:absolute;top:-42px;font-size:66px;filter:drop-shadow(0 0 12px #ff9200)}
+.slot-label{font-family:Orbitron,sans-serif;font-size:13px;letter-spacing:4px;color:#ffb12a;margin-bottom:10px;z-index:1}
+.reels{display:flex;gap:8px;z-index:1}
+.reel{width:82px;height:100px;border-radius:12px;background:linear-gradient(#fff0c7,#f8c25a 13%,#1b0b08 24%,#130707 80%,#9d3e0b);border:2px solid #ff9c22;display:grid;place-items:center;font-size:53px;text-shadow:0 0 15px #ff3500;box-shadow:0 0 16px #ff4a00}
+.coin{position:absolute;font-size:35px;filter:drop-shadow(0 0 8px #ff9900);animation:float 3s ease-in-out infinite}
+.coin.c1{top:7%;left:9%}.coin.c2{top:14%;right:4%;animation-delay:.6s}.coin.c3{bottom:7%;left:7%;animation-delay:1.1s}.coin.c4{bottom:5%;right:10%;animation-delay:1.5s}
+.chip{position:absolute;border:3px dashed #ff9b17;border-radius:50%;width:64px;height:64px;background:#11131a;display:grid;place-items:center;color:#ff7b00;font-size:26px;box-shadow:0 0 18px #ff5100}
+.chip.c5{bottom:1%;right:2%}.chip.c6{top:28%;left:0;width:50px;height:50px}
+@keyframes float{50%{transform:translateY(-12px) rotate(12deg)}}
+.side-panels{position:relative;z-index:2;display:flex;flex-direction:column;gap:9px}
+.panel{background:linear-gradient(145deg,#0b0e13,#05070b);border:1px solid #30323b;border-radius:19px;padding:17px 16px;box-shadow:0 10px 25px #0005}
+.panel h3{font-size:15px;display:flex;align-items:center;gap:12px;margin-bottom:13px}
+.panel h3 .icon{font-size:25px;color:var(--gold)}
+.balance-row{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #242731;padding:9px 2px;color:#bdc6d2;font-size:13px}
+.balance-row strong{color:#fff;font-size:15px}
+.green{color:var(--green)!important}.orange{color:#ff6c3a!important}
+.panel .wide{width:100%;margin-top:10px;padding:13px 8px}
+.activity h3{margin-bottom:8px}
+.activity-row{display:flex;align-items:center;gap:8px;padding:8px 0;font-size:12px}
+.activity-row .amt{margin-left:auto;font-weight:800;white-space:nowrap}.time{color:#a2acbb;white-space:nowrap;font-size:10px}
+.dot{height:12px;width:12px;border-radius:50%;background:var(--green);box-shadow:0 0 9px #00ff8844}.dot.gold{background:#ffb600}
+.section{padding:26px 3.6% 0}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.section-head h2{font-size:26px;letter-spacing:-.7px}
+.section-head h2 span{color:var(--orange);font-size:29px;margin-right:8px}
+.text-link{font-size:13px;color:#d8e0ea}
+.games-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.game-card{border:1px solid #633b20;border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#0b0d14,#050609);transition:.2s;min-width:0}
+.game-card:hover{transform:translateY(-4px);border-color:var(--orange);box-shadow:0 8px 25px #ff790018}
+.game-art{height:132px;display:grid;place-items:center;position:relative;overflow:hidden;font-size:73px}
+.game-art:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 70%,#ff79003d,transparent 65%)}
+.game-art .emoji{position:relative;filter:drop-shadow(0 8px 10px #0008);transform:rotate(-8deg)}
+.game-art.rocket{background:radial-gradient(ellipse at 30% 100%,#8a250e,#170a2e 50%,#050712)}
+.game-art.slots{background:radial-gradient(ellipse at 50% 100%,#9a4100,#241004 54%,#09090c)}
+.game-art.sports{background:radial-gradient(ellipse at 50% 100%,#157f46,#052b3e 60%,#07101b)}
+.game-art.poker{background:radial-gradient(ellipse at 50% 100%,#7d190c,#200807 55%,#09090c)}
+.game-body{text-align:center;padding:5px 15px 15px}
+.game-body h3{font-size:17px;white-space:nowrap;letter-spacing:-.5px}
+.game-body h3 span{color:var(--orange)}
+.game-body p{font-size:12px;line-height:1.55;color:#d0d6df;min-height:38px;margin:8px 0}
+.pill{display:inline-block;padding:5px 17px;border-radius:20px;font-size:12px;font-weight:900;margin-bottom:13px;background:#075c36;color:#dffff0;box-shadow:0 0 15px #00ff8822}
+.pill.purple{background:#35106b}.pill.blue{background:#064d88}.pill.red{background:#750e20}
+.game-body .btn{width:100%;padding:11px 8px;font-size:13px}
+.jackpot{margin:27px 3.6% 0;padding:16px 22px;border-radius:22px;border:2px solid #ff6900;background:linear-gradient(90deg,#170c08,#08090d 30%,#100904 70%,#170b07);box-shadow:0 0 18px #ff520077,inset 0 0 15px #ff6a0020;display:flex;justify-content:space-around;align-items:center;gap:14px;text-align:center;position:relative;overflow:hidden}
+.jackpot:before{content:"";position:absolute;top:0;left:5%;right:5%;height:2px;background:linear-gradient(90deg,transparent,#ffb52b,transparent);box-shadow:0 0 12px #ff6b00}
+.jackpot-title{font-size:21px;font-weight:900;white-space:nowrap}
+.jackpot-title span{color:var(--orange);font-size:28px;margin-right:8px}
+.jackpot-value{font-family:Orbitron,sans-serif;color:#ffae00;font-size:clamp(22px,3.2vw,42px);font-weight:900;text-shadow:0 0 15px #ff6b00a8;white-space:nowrap}
+.next-draw{font-size:12px;font-weight:700;white-space:nowrap}.next-draw strong{display:block;font-size:21px;margin-top:4px}
+.money-grid{padding:34px 3.6% 27px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.money-card{background:linear-gradient(145deg,#080b10,#040609);border:1px solid #30323a;border-radius:16px;padding:18px}
+.money-title{display:flex;align-items:center;gap:15px;margin-bottom:15px}
+.money-title .symbol{width:68px;height:58px;border-radius:12px;background:linear-gradient(145deg,#ffca33,#9e4e00);display:grid;place-items:center;font-size:31px}
+.money-title h3{font-size:19px;margin-bottom:4px}
+.money-title p{font-size:12px;color:#c2cbd7;line-height:1.5}
+.field{position:relative;margin-top:8px}
+.field .field-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#dce1e8;font-size:17px}
+input{width:100%;background:#080c12;color:white;border:1px solid #4a5260;border-radius:13px;padding:14px 14px 14px 43px;outline:none;font-size:12px}
+input:focus{border-color:var(--orange);box-shadow:0 0 0 3px #ff79001e}
+.money-card .btn{width:100%;margin-top:12px;padding:14px}
+.note{font-size:10px;color:#b9c3cf;margin:12px 0 0;display:flex;gap:8px;align-items:center}.note b{font-size:17px;color:var(--gold)}
+footer{border-top:1px solid #292c34;padding:20px 3.6% 16px;color:#b3bdc9}
+.footer-top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:16px}
+.footer-links{display:flex;gap:26px;font-size:12px}
+.socials{display:flex;gap:14px;font-size:17px}
+.legal{border-top:1px solid #252832;padding-top:12px;text-align:center;font-size:10px;line-height:1.8}
+.age{float:right;border:2px solid var(--orange);color:var(--orange);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;font-weight:900;font-size:12px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:50;background:#171a22;border:1px solid #ff7900;color:#fff;border-radius:12px;padding:14px 18px;max-width:90%;box-shadow:0 8px 35px #0009;display:none;font-size:13px}
+@media(max-width:1050px){nav{gap:18px}.hero{grid-template-columns:1fr 1fr}.hero-art{grid-column:1;grid-row:1;min-height:300px}.hero-copy{grid-column:1;grid-row:2}.side-panels{grid-column:2;grid-row:1/3}.hero{padding-top:25px}.hero h1{font-size:49px}.games-grid{gap:11px}.game-body{padding:5px 10px 12px}.game-body h3{font-size:15px}}
+@media(max-width:760px){header{height:72px;padding:0 5%}.logo{font-size:25px}.logo .casino{font-size:13px}.menu-toggle{display:block}.actions{margin-left:auto;margin-right:10px}.actions .btn{padding:10px 15px;min-width:auto;font-size:12px}nav{display:none;position:absolute;top:71px;left:0;right:0;background:#08090d;padding:12px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}nav.open{display:flex}nav a{padding:13px 0}nav a.active:after{display:none}.hero{grid-template-columns:1fr;padding:27px 5% 22px;gap:18px}.hero-copy{grid-column:1;grid-row:1}.hero h1{font-size:clamp(44px,12vw,62px)}.hero-copy p{font-size:14px}.hero-art{grid-column:1;grid-row:2;min-height:280px}.slot-machine{width:290px;height:220px}.reel{width:67px;height:79px;font-size:42px}.side-panels{grid-column:1;grid-row:3;display:grid;grid-template-columns:1fr}.trust{gap:14px}.section{padding:24px 5% 0}.section-head h2{font-size:23px}.games-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.game-art{height:115px;font-size:60px}.game-body h3{font-size:14px}.game-body p{font-size:11px;min-height:36px}.pill{font-size:10px;padding:5px 10px}.jackpot{margin:24px 5% 0;padding:15px 10px;flex-direction:column;gap:7px}.jackpot-title{font-size:17px}.jackpot-title span{font-size:22px}.jackpot-value{font-size:clamp(23px,7vw,36px)}.next-draw strong{font-size:17px}.money-grid{padding:25px 5%;grid-template-columns:1fr;gap:13px}.money-card{padding:15px}.money-title h3{font-size:17px}.footer-top{flex-wrap:wrap}.footer-links{order:3;width:100%;justify-content:space-between;gap:8px}.socials{margin-left:auto}.legal{padding-right:42px}.age{margin-top:-35px}}
+@media(max-width:380px){.actions .btn{padding:9px 11px}.logo{font-size:22px}.game-body .btn{font-size:11px}.trust{font-size:10px}.game-art{height:100px}.section-head h2{font-size:20px}}
 </style>
 </head>
 <body>
 <header>
-<div class="logo">SONIQ</div>
-<div><button class="btn-orange" onclick="alert('MTN MoMo Deposit: 256760819519 - Name: NILESONIQ')">DEPOSIT</button></div>
+  <a class="logo" href="#home" aria-label="SONIQ Casino home"><span class="soniq">S<span class="o">���</span>NIQ</span><span class="casino">CASINO</span></a>
+  <nav id="nav">
+    <a class="active" href="#home">Home</a><a href="#games">Games</a><a href="#jackpot">Promotions</a><a href="#activity">Leaderboard</a><a href="#support">Support</a>
+  </nav>
+  <div class="actions"><button class="btn btn-outline small" onclick="notify('Login will be connected to secure account authentication during backend setup.')">Login</button><button class="btn small" onclick="notify('Sign-up will be connected to secure account authentication during backend setup.')">Sign Up</button></div>
+  <button class="menu-toggle" aria-label="Open menu" onclick="document.getElementById('nav').classList.toggle('open')">���</button>
 </header>
 
-<div class="hero">
-<div>
-<h1>SPIN.<br>PLAY.<br><span>WIN BIG.</span></h1>
-<p>Uganda's fastest payout casino. Deposit with MTN MoMo, withdraw in 2 minutes. No KYC for small wins.</p>
-<button class="btn-orange" onclick="spin()">PLAY NOW - 500 UGX</button>
-<div style="margin-top:14px;color:#9aa0b2;font-size:13px">✓ MTN MoMo 256760819519 ✓ Instant Withdraw ✓ 98% RTP</div>
-</div>
-<div class="balance-card">
-<h3>💰 Your Balance</h3>
-<div class="b-row"><span>Balance</span><b id="bal">5,000 UGX</b></div>
-<div class="b-row"><span>Total Won</span><b id="won">0 UGX</b></div>
-<div class="b-row"><span>Jackpot</span><b class="mult" id="jack">2,458,000 UGX</b></div>
-<button class="btn-orange" style="width:100%;margin-top:12px" onclick="withdraw()">WITHDRAW VIA MOMO</button>
-<div id="slotResult" style="margin-top:18px;font-size:42px;text-align:center">🎰 🎰 🎰</div>
-</div>
-</div>
+<main id="home">
+<section class="hero">
+  <div class="hero-copy">
+    <h1>SPIN. PLAY.<br><span>WIN BIG.</span></h1>
+    <p>Enter the SONIQ world of games. Explore the experience with our bold, neon casino design.</p>
+    <button class="btn play-btn" onclick="notify('Game play is a design preview. Real-money play is not enabled.')">PLAY NOW&nbsp; ���</button>
+    <div class="trust">
+      <div class="trust-item"><span class="trust-icon">���</span><span>MTN MoMo<br>Payment options</span></div>
+      <div class="trust-item"><span class="trust-icon">��</span><span>Secure<br>transactions</span></div>
+      <div class="trust-item"><span class="trust-icon">���</span><span>Fair play<br>controls planned</span></div>
+    </div>
+  </div>
+  <div class="hero-art" aria-label="Decorative slot machine illustration">
+    <div class="art-glow"></div><span class="coin c1">����</span><span class="coin c2">����</span><span class="coin c3">����</span><span class="coin c4">����</span>
+    <div class="slot-machine"><div class="slot-crown">����</div><div class="slot-label">SONIQ JACKPOT</div><div class="reels"><div class="reel">7</div><div class="reel">7</div><div class="reel">7</div></div></div>
+    <div class="chip c5">��</div><div class="chip c6">��</div>
+  </div>
+  <aside class="side-panels">
+    <div class="panel">
+      <h3><span class="icon">���</span> Your Balance</h3>
+      <div class="balance-row"><span>Balance</span><strong>��� UGX</strong></div>
+      <div class="balance-row"><span>Total Won</span><strong>��� UGX</strong></div>
+      <div class="balance-row"><span>Jackpot</span><strong class="green">Demo preview</strong></div>
+      <button class="btn wide" onclick="notify('Your wallet will appear here after secure account and backend setup.')">WITHDRAW VIA MOMO</button>
+    </div>
+    <div class="panel activity" id="activity">
+      <h3>Recent Activity</h3>
+      <div class="activity-row"><span class="dot"></span><span>Deposit</span><span class="amt green">Pending verification</span></div>
+      <div class="activity-row"><span class="dot gold"></span><span>Wager</span><span class="amt orange">Demo only</span></div>
+      <div class="activity-row"><span class="dot"></span><span>Win</span><span class="amt green">Demo only</span></div>
+    </div>
+  </aside>
+</section>
 
-<div class="jackpot">🔥 LIVE JACKPOT: <span id="jack2">2,458,000</span> UGX - NEXT DRAW IN <span id="timer">04:59</span></div>
+<section class="section" id="games">
+  <div class="section-head"><h2><span>���</span> HOT GAMES</h2><a class="text-link" href="#games" onclick="notify('All game experiences will be added after the design is approved.')">View All Games&nbsp; ���</a></div>
+  <div class="games-grid">
+    <article class="game-card"><div class="game-art rocket"><span class="emoji">����</span></div><div class="game-body"><h3>SONIQ <span>CRASH</span></h3><p>Cash out before it crashes.<br>Up to 1000x</p><div class="pill">2.45x �� DEMO</div><button class="btn" onclick="notify('SONIQ Crash is a visual preview; no real-money wagers are enabled.')">PLAY NOW</button></div></article>
+    <article class="game-card"><div class="game-art slots"><span class="emoji">����</span></div><div class="game-body"><h3>SUPER <span>SPIN</span></h3><p>Match symbols in this<br>slot-style preview</p><div class="pill purple">SLOT PREVIEW</div><button class="btn" onclick="notify('Super Spin is a visual preview; no real-money wagers are enabled.')">SPIN NOW</button></div></article>
+    <article class="game-card"><div class="game-art sports"><span class="emoji">���</span></div><div class="game-body"><h3>VIRTUAL SPORTS</h3><p>Explore the virtual<br>football concept</p><div class="pill blue">SPORTS PREVIEW</div><button class="btn" onclick="notify('Virtual Sports is not yet available.')">VIEW GAME</button></div></article>
+    <article class="game-card"><div class="game-art poker"><span class="emoji">����</span></div><div class="game-body"><h3>SONIQ <span>POKER</span></h3><p>Texas Hold���em inspired<br>card-game concept</p><div class="pill red">CARD PREVIEW</div><button class="btn" onclick="notify('SONIQ Poker is not yet available.')">VIEW GAME</button></div></article>
+  </div>
+</section>
 
-<div class="games">
-<h2>🔥 Hot Games</h2>
-<div class="grid">
-<div class="game"><div class="game-top">🚀</div><div class="game-body"><h3>SONIQ Crash</h3><p>Cash out before it crashes. Up to 1000x</p><div class="mult">2.45x • LIVE</div><br><button class="btn-orange" onclick="crash()">PLAY</button></div></div>
-<div class="game"><div class="game-top">🎰</div><div class="game-body"><h3>Super Spin</h3><p>3 matching symbols win jackpot</p><div class="mult">RTP 98%</div><br><button class="btn-orange" onclick="spin()">SPIN</button></div></div>
-<div class="game"><div class="game-top">⚽</div><div class="game-body"><h3>Virtual Sports</h3><p>Bet on virtual football - every 3 mins</p><div class="mult">ODDS 15.0</div><br><button class="btn-orange" onclick="alert('Coming Soon')">BET</button></div></div>
-<div class="game"><div class="game-top">♠️</div><div class="game-body"><h3>SONIQ Poker</h3><p>Texas Holdem - daily tournament</p><div class="mult">PRIZE 500K</div><br><button class="btn-orange" onclick="alert('Coming Soon')">JOIN</button></div></div>
-</div>
-</div>
+<section class="jackpot" id="jackpot">
+  <div class="jackpot-title"><span>���</span> LIVE JACKPOT</div><div class="jackpot-value">2,458,000 UGX</div><div class="next-draw">NEXT DRAW IN<strong id="timer">04:59</strong></div>
+</section>
 
-<div class="deposit">
-<div>
-<h3>Deposit via MTN MoMo</h3>
-<p style="color:#9aa0b2;font-size:14px;margin-top:6px">Send to: 256760819519 (NILESONIQ) then enter Transaction ID</p>
-<input id="tx" placeholder="Enter MoMo Transaction ID e.g. 1234567890">
-<button class="btn-orange" style="margin-top:12px;width:100%" onclick="deposit()">CONFIRM DEPOSIT</button>
-</div>
-<div>
-<h3>Withdraw</h3>
-<input id="phone" placeholder="Your MoMo Number 07XXXXXXXX">
-<input id="amt" placeholder="Amount UGX (min 1000)">
-<button class="btn-orange" style="margin-top:12px;width:100%" onclick="withdraw()">WITHDRAW NOW</button>
-</div>
-</div>
+<section class="money-grid" id="payments">
+  <div class="money-card">
+    <div class="money-title"><div class="symbol">����</div><div><h3>Deposit via MTN MoMo</h3><p>Payment setup will be connected after provider approval.</p></div></div>
+    <div class="field"><span class="field-icon">���</span><input id="tx" autocomplete="off" placeholder="Enter MoMo Transaction ID"></div>
+    <button class="btn" onclick="notify('This design preview cannot verify or credit a deposit. Do not submit a transaction here.')">CONFIRM DEPOSIT</button>
+    <p class="note"><b>���</b> Deposits must be verified by the payment provider before crediting a wallet.</p>
+  </div>
+  <div class="money-card">
+    <div class="money-title"><div class="symbol" style="background:linear-gradient(145deg,#ff9c22,#7c2800)">���</div><div><h3>Withdraw</h3><p>Withdrawal form preview for your mobile wallet.</p></div></div>
+    <div class="field"><span class="field-icon">���</span><input id="phone" inputmode="tel" autocomplete="tel" placeholder="Your MoMo number"></div>
+    <div class="field"><span class="field-icon">���</span><input id="amount" inputmode="numeric" placeholder="Amount UGX"></div>
+    <button class="btn" onclick="notify('Withdrawals are not enabled in this design preview. No money will be sent.')">WITHDRAW NOW</button>
+    <p class="note"><b>���</b> Payouts require a verified wallet, approved provider, and secure server processing.</p>
+  </div>
+</section>
+</main>
 
-<footer>© 2026 SONIQ CASINO • MTN MoMo: 256760819519 • Support: WhatsApp 0760819519 • Play Responsibly 18+<br>Gambling can be addictive. SONIQ is licensed for entertainment.</footer>
-
+<footer id="support">
+  <div class="footer-top">
+    <a class="logo" href="#home"><span class="soniq">S<span class="o">���</span>NIQ</span><span class="casino">CASINO</span></a>
+    <div class="footer-links"><a href="#home">Home</a><a href="#games">Games</a><a href="#jackpot">Promotions</a><a href="#activity">Leaderboard</a><a href="#support">Support</a></div>
+    <div class="socials" aria-label="Social links"><span>���</span><span>���</span><span>f</span><span>����</span><span>���</span></div>
+  </div>
+  <div class="legal">�� 2026 SONIQ CASINO �� Support: contact details to be added<br>Play responsibly. Gambling can be addictive. 18� only. Real-money features are not enabled in this design preview.<span class="age">18�</span></div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
-let balance=5000; let totalWon=0;
-function update(){document.getElementById('bal').innerText=balance.toLocaleString()+' UGX'; document.getElementById('won').innerText=totalWon.toLocaleString()+' UGX';}
-function spin(){
- if(balance<500){alert('Low balance. Deposit via MTN MoMo 256760819519');return;}
- balance-=500;
- let icons=['🍒','🍋','💎','7️⃣','🚀','💰']; let a=icons[Math.floor(Math.random()*icons.length)]; let b=icons[Math.floor(Math.random()*icons.length)]; let c=icons[Math.floor(Math.random()*icons.length)];
- document.getElementById('slotResult').innerText=a+' '+b+' '+c;
- if(a==b && b==c){ let win=a=='💎'?50000:a=='7️⃣'?25000:5000; balance+=win; totalWon+=win; alert('WIN! +'+win+' UGX'); } else if(a==b||b==c||a==c){ balance+=1000; totalWon+=500; }
- update();
-}
-function crash(){ let m=(Math.random()*10+1).toFixed(2); if(confirm('Crash started at 1.00x, it will crash at '+m+'x. Press OK to cash out at 2x?')){ balance+=1000; totalWon+=1000; alert('You cashed out! +1000 UGX'); update(); } else { alert('Crashed at '+m+'x'); } }
-function deposit(){ let tx=document.getElementById('tx').value; if(tx.length<5){alert('Enter valid Transaction ID');return;} balance+=parseInt(tx.slice(-4))||1000; alert('Deposit Received! Balance updated.'); update(); }
-function withdraw(){ let p=document.getElementById('phone').value; let a=document.getElementById('amt').value; if(!p||!a){alert('Enter phone and amount');return;} if(parseInt(a)>balance){alert('Insufficient balance');return;} alert('Withdrawal of '+a+' UGX to '+p+' requested. Will be sent via MTN MoMo 256760819519 in 2 minutes.'); balance-=parseInt(a); update(); }
-setInterval(()=>{ let j=document.getElementById('jack'); let n=parseInt(j.innerText.replace(/,/g,'')); j.innerText=(n+Math.floor(Math.random()*100)).toLocaleString()+' UGX'; },1000);
-let t=299; setInterval(()=>{ t--; let m=Math.floor(t/60); let s=t%60; document.getElementById('timer').innerText=(m<10?'0':'')+m+':'+(s<10?'0':'')+s; if(t<=0) t=300; },1000);
-update();
+let timer=299;
+function tick(){const m=Math.floor(timer/60),s=timer%60;document.getElementById('timer').textContent=String(m).padStart(2,'0')�':'䫚(s).padStart(2,'0');timer=timer<=0?299:timer-1}
+tick();setInterval(tick,1000);
+let toastTimeout;
+function notify(message){const el=document.getElementById('toast');el.textContent=message;el.style.display='block';clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.style.display='none',3800)}
 </script>
 </body>
 </html>
